@@ -1,4 +1,5 @@
 import 'package:commercialism/AppColors.dart';
+import 'package:commercialism/Widgets/big_text.dart';
 import 'package:flutter/material.dart';
 
 
@@ -26,9 +27,11 @@ class _MainFoodPageState extends State<MainFoodPage> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
-                  Text(
-                    "Country",
-                    style: TextStyle(fontSize: 32, color: AppColors.COUNTRY_NAME),
+                  BigText(
+                  text: "India",
+                  size: 32,
+                  color: AppColors.COUNTRY_NAME,
+                  weight: FontWeight.w600,
                   ),
                   SizedBox(height: 4),
                   Row(

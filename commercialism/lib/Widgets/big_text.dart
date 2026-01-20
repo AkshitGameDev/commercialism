@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 class BigText extends StatelessWidget {
   final String text;
   final double size;
-  final Color color;
+  final Color? color;
   final TextAlign align;
   final FontWeight weight;
   final int maxLines;
@@ -29,6 +29,7 @@ class BigText extends StatelessWidget {
       overflow: overflow,
       textAlign: align,
       style: TextStyle(
+        fontFamily: 'Roboto',
         fontSize: size,
         color: color,
         fontWeight: weight,
