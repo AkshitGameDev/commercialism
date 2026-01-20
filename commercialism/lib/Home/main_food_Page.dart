@@ -1,5 +1,6 @@
 import 'package:commercialism/AppColors.dart';
 import 'package:commercialism/Widgets/big_text.dart';
+import 'package:commercialism/Widgets/small_Text.dart';
 import 'package:flutter/material.dart';
 
 
@@ -26,22 +27,20 @@ class _MainFoodPageState extends State<MainFoodPage> {
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   BigText(
                   text: "India",
                   size: 32,
                   color: AppColors.COUNTRY_NAME,
                   weight: FontWeight.w600,
                   ),
-                  SizedBox(height: 4),
-                  Row(
+                  const SizedBox(height: 4),
+                  const Row(
                     children: [
-                      Text(
-                        "City",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      SmallText(
+                        text: "City",
+                        size: 16,
+                        color: Colors.black54,
                       ),
                       Icon(Icons.arrow_drop_down_rounded),
                     ],
