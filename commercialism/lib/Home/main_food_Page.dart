@@ -1,3 +1,4 @@
+import 'package:commercialism/AppColors.dart';
 import 'package:flutter/material.dart';
 
 
@@ -12,7 +13,10 @@ class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: Column(
+        children: [
+         SafeArea(
+
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Row(
@@ -24,7 +28,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                 children: const [
                   Text(
                     "Country",
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                    style: TextStyle(fontSize: 32, color: AppColors.COUNTRY_NAME),
                   ),
                   SizedBox(height: 4),
                   Row(
@@ -32,7 +36,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                       Text(
                         "City",
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -45,14 +49,16 @@ class _MainFoodPageState extends State<MainFoodPage> {
                 width: 45,
                 height: 45,
                 decoration: BoxDecoration(
-                  color: Colors.cyan,
+                  color: AppColors.primary,
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: const Icon(Icons.person, color: Colors.white),
+                child: const Icon(Icons.search, color: Colors.white),
               ),
             ],
           ),
         ),
+      ),
+        ],
       ),
     );
   }
