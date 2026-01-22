@@ -1,7 +1,9 @@
 import 'package:commercialism/AppColors.dart';
+import 'package:commercialism/Home/food_page_body.dart';
 import 'package:commercialism/Widgets/big_text.dart';
 import 'package:commercialism/Widgets/small_Text.dart';
 import 'package:flutter/material.dart';
+
 
 
 class MainFoodPage extends StatefulWidget {
@@ -18,7 +20,6 @@ class _MainFoodPageState extends State<MainFoodPage> {
       body: Column(
         children: [
          SafeArea(
-
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Row(
@@ -60,6 +61,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
           ),
         ),
       ),
+        FoodPageBody(),
         ],
       ),
     );
