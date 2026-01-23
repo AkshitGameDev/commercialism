@@ -33,10 +33,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         image: const DecorationImage(
           fit: BoxFit.cover,
           image: AssetImage(
-            "assets/image/food0.jpg",
-          ), 
-        )
-      )
+            "assets/images/food1.jpg",
+          ),
+        ),
+      ),
     );
   }
 
