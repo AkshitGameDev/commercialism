@@ -5,9 +5,9 @@ class AppColors {
 
   static final Color primary = const Color(0xFF0A84FF);
   static final Color primaryVariant = const Color(0xFF0060DF);
-  static final Color accent = const  Color(0xFFFFC107);
+  static final Color accent = const Color(0xFFFFC107);
   static final Color background = const  Color(0xFFF5F7FA);
-  static final Color surface = const  Color(0xFFFFFFFF);
+  static final Color surface = const Color(0xFFFFFFFF);
   static final Color textPrimary = const  Color(0xFF111827);
   static final Color textSecondary = const  Color(0xFF6B7280);
   static final Color success =  const Color(0xFF10B981);
