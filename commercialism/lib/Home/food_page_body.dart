@@ -1,3 +1,4 @@
+import 'package:commercialism/Widgets/big_text.dart';
 import 'package:flutter/material.dart';
 
 class FoodPageBody extends StatefulWidget {
@@ -9,12 +10,13 @@ class FoodPageBody extends StatefulWidget {
 
 class _FoodPageBodyState extends State<FoodPageBody> {
   
-
+  PageController pageController = PageController(viewportFraction: 0.85);
   @override
   Widget build(BuildContext context) {
     return  Container(
         height: 320,
           child: PageView.builder(
+            controller: pageController,
             itemCount: 5,
             itemBuilder: (context, position){
             return _buldPageItem(position);
@@ -43,7 +45,21 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             margin: const EdgeInsets.only(left: 40, right: 40),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
-              color: index.isEven?Color(0xFF000000):index.isOdd?Color.fromARGB(255, 255, 255, 255):Color.fromARGB(255, 0, 0, 0),
+              color: Color.fromARGB(255, 255, 255, 255),
+              ),
+              child: Container(
+                padding: EdgeInsets.only(top: 10, left: 15, right: 15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    BigText(text: "Chinese Side"),
+                    SizedBox(height: 10,),
+                    Row(children: [
+                      Wrap(
+                        children: List.generate(5, (index) => Icon(Icons.star, color: Colors.orange, size: 15,)),
+                      ),
+                    ],)
+                ],),
               ),
             ),
           ),
