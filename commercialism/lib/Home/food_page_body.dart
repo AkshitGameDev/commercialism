@@ -1,3 +1,5 @@
+import 'package:commercialism/AppColors.dart';
+import 'package:commercialism/Widgets/Icon_and_text_widget.dart';
 import 'package:commercialism/Widgets/big_text.dart';
 import 'package:flutter/material.dart';
 
@@ -50,16 +52,12 @@ Widget _buldPageItem(int index) {
           ),
 
           child: Padding(
-            padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
+            padding: const EdgeInsets.only(top: 18, left: 15, right: 15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 BigText(text: "Chinese Side"),
-
-                const SizedBox(height: 10),
-
-                /// ⭐ Rating row
+                SizedBox(height: 10),
                 Row(
                   children: [
                     Wrap(
@@ -80,6 +78,12 @@ Widget _buldPageItem(int index) {
                     const Text("comments"),
                   ],
                 ),
+                SizedBox(height: 20),
+                Row(children: [
+                  IconAndTextWidget(icon: Icons.circle, text: "Normal", iconColor: Colors.orange),
+                  IconAndTextWidget(icon: Icons.location_on, text: "1.7km", iconColor: AppColors.primary),
+                  IconAndTextWidget(icon: Icons.access_time_filled_rounded, text: "32min", iconColor: AppColors.danger)
+                ],)
               ],
             ),
           ),

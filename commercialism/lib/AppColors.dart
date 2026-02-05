@@ -12,6 +12,7 @@ class AppColors {
   static final Color textSecondary = const  Color(0xFF6B7280);
   static final Color success =  const Color(0xFF10B981);
   static final Color danger =  const Color(0xFFEF4444);
+  static final Color indicator =  const Color(0xFFEF4444);
   static final Color disabled =  const Color(0xFF9CA3AF);
   static final Color border =  const Color(0xFFE5E7EB);
   static final Color COUNTRY_NAME = const Color(0xFF1AFFC2);
