@@ -25,46 +25,69 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         );
      
   }
+Widget _buldPageItem(int index) {
+  return Stack(
+    children: [
+      Container(
+        height: 220,
+        margin: const EdgeInsets.only(left: 15, right: 15),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: index.isEven
+              ? const Color(0xFF69c5df)
+              : const Color(0xFF9294cc),
+        ),
+      ),
 
-  Widget _buldPageItem(int index){
-    return Stack(
-        children: 
-        [
-        Container(
-          height: 220,
-          margin: const EdgeInsets.only(left: 15, right: 15),
+      Align(
+        alignment: Alignment.bottomCenter,
+        child: Container(
+          height: 140,
+          margin: const EdgeInsets.only(left: 40, right: 40, bottom: 30),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
-            color: index.isEven?Color(0xFF69c5df):index.isOdd?Color(0xFF9294cc):Color(0xFFf8aabb),
+            color: Colors.white,
           ),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            height: 140,
-            margin: const EdgeInsets.only(left: 40, right: 40),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              color: Color.fromARGB(255, 255, 255, 255),
-              ),
-              child: Container(
-                padding: EdgeInsets.only(top: 10, left: 15, right: 15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+
+                BigText(text: "Chinese Side"),
+
+                const SizedBox(height: 10),
+
+                /// ⭐ Rating row
+                Row(
                   children: [
-                    BigText(text: "Chinese Side"),
-                    SizedBox(height: 10,),
-                    Row(children: [
-                      Wrap(
-                        children: List.generate(5, (index) => Icon(Icons.star, color: Colors.orange, size: 15,)),
+                    Wrap(
+                      children: List.generate(
+                        5,
+                        (index) => const Icon(
+                          Icons.star,
+                          color: Colors.orange,
+                          size: 15,
+                        ),
                       ),
-                    ],)
-                ],),
-              ),
+                    ),
+                    const SizedBox(width: 10),
+                    const Text("4.5"),
+                    const SizedBox(width: 10),
+                    const Text("1287"),
+                    const SizedBox(width: 10),
+                    const Text("comments"),
+                  ],
+                ),
+              ],
             ),
           ),
-        ],
-    );
-  }
+        ),
+      ),
+    ],
+  );
+}
+
 
 }
