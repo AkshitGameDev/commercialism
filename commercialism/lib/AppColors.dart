@@ -16,4 +16,5 @@ class AppColors {
   static final Color disabled =  const Color(0xFF9CA3AF);
   static final Color border =  const Color(0xFFE5E7EB);
   static final Color COUNTRY_NAME = const Color(0xFF1AFFC2);
+  static final Color Search_Button = const Color(0xFF7ED5C8);
 }
