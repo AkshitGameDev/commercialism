@@ -52,7 +52,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                 width: 45,
                 height: 45,
                 decoration: BoxDecoration(
-                  color: AppColors.primary,
+                  color: AppColors.Search_Button,
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: const Icon(Icons.search, color: Colors.white),

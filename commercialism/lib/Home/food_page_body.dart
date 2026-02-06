@@ -1,43 +1,134 @@
+import 'package:commercialism/AppColors.dart';
+import 'package:commercialism/Widgets/Icon_and_text_widget.dart';
+import 'package:commercialism/Widgets/big_text.dart';
 import 'package:flutter/material.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
 
-  @override
-  State<FoodPageBody> createState() => _FoodPageBodyState();
+State<FoodPageBody> createState() => _FoodPageBodyState();
 }
 
 class _FoodPageBodyState extends State<FoodPageBody> {
   
+  PageController pageController = PageController(viewportFraction: 0.85);
+  
+  var _currentPageValue = 0.0;
+  double _scaleFactor = 0.8;
+  double _height = 220;
+
+  @override
+  void initState() {
+    super.initState();
+    pageController.addListener(() {
+      setState(() {
+        _currentPageValue = pageController.page!;
+        print("Cur page val" + _currentPageValue.toString());
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 320,
-      child: PageView.builder(
-        itemCount: 5,
-        itemBuilder: (context, position){
-          return _buldPageItem(position);
-        },
-      ),
-    );
+    return  Container(
+        height: 320,
+          child: PageView.builder(
+            controller: pageController,
+            itemCount: 5,
+            itemBuilder: (context, position){
+            return _buldPageItem(position);
+            },
+          ),
+        );
+     
   }
+  Widget _buldPageItem(int index) {
+    Matrix4 matrix = new Matrix4.identity();
+    if(index == _currentPageValue.floor()){
+      var currScale = 1 - (_currentPageValue - index) * (1 - _scaleFactor); // for the page on cur index :)
+      var currTrans = _height * (1 - currScale) / 2;
+      matrix = Matrix4.diagonal3Values(1, currScale, 1)..setTranslationRaw(0, currTrans, 0);
+    }
+    else if(index == _currentPageValue.floor() + 1){
+      var currScale = _scaleFactor + (_currentPageValue - index + 1) * (1 - _scaleFactor); // for the  page on right :|
+      var currTrans = _height * (1 - currScale) / 2;
+      matrix = Matrix4.diagonal3Values(1, currScale, 1);
+      matrix = Matrix4.diagonal3Values(1, currScale, 1)..setTranslationRaw(0, currTrans, 0);
+    }
 
-  Widget _buldPageItem(int index){
-    return Container(
-      height: 220,
-      margin: const EdgeInsets.only(left: 15, right: 15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
-        color: index.isEven?Color(0xFF69c5df):index.isOdd?Color(0xFF9294cc):Color(0xFFf8aabb),
-        image: const DecorationImage(
-          fit: BoxFit.cover,
-          image: AssetImage(
-            "assets/image/food0.jpg",
-          ), 
-        )
-      )
-    );
-  }
+  return Transform(
+    transform: matrix,
+    child: Stack(
+      children: [
+        Container(
+          height: 220,
+          margin: const EdgeInsets.only(left: 15, right: 15),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            color: index.isEven
+                ? const Color(0xFF69c5df)
+                : const Color(0xFF9294cc),
+          ),
+        ),
+    
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            height: 140,
+            margin: const EdgeInsets.only(left: 40, right: 40, bottom: 30),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              color: Colors.white,
+            ),
+    
+            child: Padding(
+              padding: const EdgeInsets.only(top: 18, left: 15, right: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  BigText(text: "Chinese Side"),
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      Wrap(
+                        children: List.generate(
+                          5,
+                          (index) => const Icon(
+                            Icons.star,
+                            color: Colors.orange,
+                            size: 15,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      const Text("4.5"),
+                      const SizedBox(width: 10),
+                      const Text("1287"),
+                      const SizedBox(width: 10),
+                      const Text("comments"),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  Row(children: [
+                    IconAndTextWidget(icon: Icons.circle, text: "Normal", iconColor: Colors.orange),
+                    IconAndTextWidget(icon: Icons.location_on, text: "1.7km", iconColor: AppColors.primary),
+                    IconAndTextWidget(icon: Icons.access_time_filled_rounded, text: "32min", iconColor: AppColors.danger)
+                  ],)
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
 
 }
