@@ -1,6 +1,7 @@
 import 'package:commercialism/AppColors.dart';
 import 'package:commercialism/Widgets/Icon_and_text_widget.dart';
 import 'package:commercialism/Widgets/big_text.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
 class FoodPageBody extends StatefulWidget {
@@ -36,17 +37,30 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-        height: 320,
+    return  Column(
+      children: [
+        Container(
+          height: 320,
           child: PageView.builder(
             controller: pageController,
             itemCount: 5,
-            itemBuilder: (context, position){
-            return _buldPageItem(position);
+            itemBuilder: (context, position) {
+              return _buldPageItem(position);
             },
           ),
-        );
-     
+        ),
+        new DotsIndicator(
+          dotsCount: 5,
+          position: _currentPageValue,
+          decorator: DotsDecorator(
+            activeColor: AppColors.success,
+            size: const Size.square(9.0),
+            activeSize: const Size(18.0, 9.0),
+            activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+          ),
+        ),
+      ],
+    );
   }
   Widget _buldPageItem(int index) {
     Matrix4 matrix = new Matrix4.identity();
@@ -60,6 +74,16 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       var currTrans = _height * (1 - currScale) / 2;
       matrix = Matrix4.diagonal3Values(1, currScale, 1);
       matrix = Matrix4.diagonal3Values(1, currScale, 1)..setTranslationRaw(0, currTrans, 0);
+    }
+    else if(index == _currentPageValue.floor() - 1){
+      var currScale = 1 - (_currentPageValue - index) * (1 - _scaleFactor); // for the page on left :D
+      var currTrans = _height * (1 - currScale) / 2;
+      matrix = Matrix4.diagonal3Values(1, currScale, 1);   
+      matrix = Matrix4.diagonal3Values(1, currScale, 1)..setTranslationRaw(0, currTrans, 0);
+    }
+    else{
+      var currScale = 0.8;
+      matrix = Matrix4.diagonal3Values(1, currScale, 1)..setTranslationRaw(0, _height * (1 - _scaleFactor) / 2, 0);
     }
 
   return Transform(
@@ -76,7 +100,6 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 : const Color(0xFF9294cc),
           ),
         ),
-    
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
@@ -85,8 +108,22 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.white,
+                  blurRadius: 5.0,
+                  offset: Offset(0, 5),
+                ),
+                BoxShadow(
+                  color:  Colors.white,
+                  offset: Offset(-5, 0),
+                ),
+                BoxShadow(
+                  color:  Colors.white,
+                  offset: Offset(5, 0),
+                ),
+              ],
             ),
-    
             child: Padding(
               padding: const EdgeInsets.only(top: 18, left: 15, right: 15),
               child: Column(
@@ -116,15 +153,17 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   ),
                   SizedBox(height: 20),
                   Row(children: [
-                    IconAndTextWidget(icon: Icons.circle, text: "Normal", iconColor: Colors.orange),
+                    IconAndTextWidget(icon: (Icons.circle), text: "Normal", iconColor: Colors.orange),
                     IconAndTextWidget(icon: Icons.location_on, text: "1.7km", iconColor: AppColors.primary),
-                    IconAndTextWidget(icon: Icons.access_time_filled_rounded, text: "32min", iconColor: AppColors.danger)
+                    IconAndTextWidget(icon: Icons.accessibility_new_outlined, text: "32min", iconColor: AppColors.danger)
                   ],)
                 ],
               ),
             ),
+            
           ),
         ),
+        
       ],
     ),
   );
