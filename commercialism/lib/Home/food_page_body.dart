@@ -1,6 +1,7 @@
 import 'package:commercialism/AppColors.dart';
 import 'package:commercialism/Widgets/Icon_and_text_widget.dart';
 import 'package:commercialism/Widgets/big_text.dart';
+import 'package:commercialism/Utils/dimensions.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   
   var _currentPageValue = 0.0;
   double _scaleFactor = 0.8;
-  double _height = 220;
+  final double _height = Dimensions.pageViewContainer;
 
   @override
   void initState() {
@@ -40,7 +41,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     return  Column(
       children: [
         Container(
-          height: 320,
+          height: Dimensions.pageView,
           child: PageView.builder(
             controller: pageController,
             itemCount: 5,
@@ -152,7 +153,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     ],
                   ),
                   SizedBox(height: 20),
-                  Row(children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
                     IconAndTextWidget(icon: (Icons.circle), text: "Normal", iconColor: Colors.orange),
                     IconAndTextWidget(icon: Icons.location_on, text: "1.7km", iconColor: AppColors.primary),
                     IconAndTextWidget(icon: Icons.accessibility_new_outlined, text: "32min", iconColor: AppColors.danger)

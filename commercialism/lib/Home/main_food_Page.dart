@@ -18,7 +18,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [
+        children: [  
          SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
