@@ -1,5 +1,6 @@
 import 'package:commercialism/AppColors.dart';
 import 'package:commercialism/Home/food_page_body.dart';
+import 'package:commercialism/Utils/dimensions.dart';
 import 'package:commercialism/Widgets/big_text.dart';
 import 'package:commercialism/Widgets/small_Text.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +21,9 @@ class _MainFoodPageState extends State<MainFoodPage> {
       body: Column(
         children: [  
          SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
+        child: Container(
+          margin: EdgeInsets.only(top: Dimensions.height45, bottom: Dimensions.height15),
+          padding: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +55,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                 height: 45,
                 decoration: BoxDecoration(
                   color: AppColors.Search_Button,
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(Dimensions.radius15),
                 ),
                 child: const Icon(Icons.search, color: Colors.white),
               ),
