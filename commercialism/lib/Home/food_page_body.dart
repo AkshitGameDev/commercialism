@@ -1,6 +1,7 @@
 import 'package:commercialism/AppColors.dart';
 import 'package:commercialism/Widgets/Icon_and_text_widget.dart';
 import 'package:commercialism/Widgets/big_text.dart';
+import 'package:commercialism/Utils/dimensions.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   
   var _currentPageValue = 0.0;
   double _scaleFactor = 0.8;
-  double _height = 220;
+  final double _height = Dimensions.pageViewContainer;
 
   @override
   void initState() {
@@ -40,7 +41,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     return  Column(
       children: [
         Container(
-          height: 320,
+          height: Dimensions.pageView,
           child: PageView.builder(
             controller: pageController,
             itemCount: 5,
@@ -91,22 +92,26 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     child: Stack(
       children: [
         Container(
-          height: 220,
-          margin: const EdgeInsets.only(left: 15, right: 15),
+          height: Dimensions.pageViewContainer,
+          margin: EdgeInsets.only(left: Dimensions.width15, right: Dimensions.width15),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(Dimensions.radius30),
             color: index.isEven
                 ? const Color(0xFF69c5df)
                 : const Color(0xFF9294cc),
+            image: const DecorationImage(
+              image: AssetImage("assets/images/food0.jpg"),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            height: 140,
-            margin: const EdgeInsets.only(left: 40, right: 40, bottom: 30),
+            height: Dimensions.pageViewTextContainer,
+            margin: EdgeInsets.only(left: Dimensions.width30, right: Dimensions.width30, bottom: Dimensions.height20),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(Dimensions.radius20),
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
@@ -125,12 +130,12 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               ],
             ),
             child: Padding(
-              padding: const EdgeInsets.only(top: 18, left: 15, right: 15),
+              padding: EdgeInsets.only(top: Dimensions.height15, left: Dimensions.width15, right: Dimensions.width15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   BigText(text: "Chinese Side"),
-                  SizedBox(height: 10),
+                  SizedBox(height: Dimensions.height10),
                   Row(
                     children: [
                       Wrap(
@@ -151,8 +156,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       const Text("comments"),
                     ],
                   ),
-                  SizedBox(height: 20),
-                  Row(children: [
+                  SizedBox(height: Dimensions.height20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
                     IconAndTextWidget(icon: (Icons.circle), text: "Normal", iconColor: Colors.orange),
                     IconAndTextWidget(icon: Icons.location_on, text: "1.7km", iconColor: AppColors.primary),
                     IconAndTextWidget(icon: Icons.accessibility_new_outlined, text: "32min", iconColor: AppColors.danger)
