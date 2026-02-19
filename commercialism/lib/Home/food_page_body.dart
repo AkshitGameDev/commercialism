@@ -99,6 +99,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             color: index.isEven
                 ? const Color(0xFF69c5df)
                 : const Color(0xFF9294cc),
+            image: const DecorationImage(
+              image: AssetImage("assets/images/food0.jpg"),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         Align(
