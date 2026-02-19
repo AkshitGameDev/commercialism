@@ -92,10 +92,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     child: Stack(
       children: [
         Container(
-          height: 220,
-          margin: const EdgeInsets.only(left: 15, right: 15),
+          height: Dimensions.pageViewContainer,
+          margin: EdgeInsets.only(left: Dimensions.width15, right: Dimensions.width15),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(Dimensions.radius30),
             color: index.isEven
                 ? const Color(0xFF69c5df)
                 : const Color(0xFF9294cc),
@@ -108,10 +108,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            height: 140,
-            margin: const EdgeInsets.only(left: 40, right: 40, bottom: 30),
+            height: Dimensions.pageViewTextContainer,
+            margin: EdgeInsets.only(left: Dimensions.width30, right: Dimensions.width30, bottom: Dimensions.height20),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(Dimensions.radius20),
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
@@ -130,12 +130,12 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               ],
             ),
             child: Padding(
-              padding: const EdgeInsets.only(top: 18, left: 15, right: 15),
+              padding: EdgeInsets.only(top: Dimensions.height15, left: Dimensions.width15, right: Dimensions.width15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   BigText(text: "Chinese Side"),
-                  SizedBox(height: 10),
+                  SizedBox(height: Dimensions.height10),
                   Row(
                     children: [
                       Wrap(
@@ -156,7 +156,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       const Text("comments"),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: Dimensions.height20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
