@@ -18,12 +18,18 @@ class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [  
-         SafeArea(
-        child: Container(
-          margin: EdgeInsets.only(top: Dimensions.height45, bottom: Dimensions.height15),
-          padding: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20),
+  body: SafeArea(
+    child: Column(
+      children: [
+        Container(
+          margin: EdgeInsets.only(
+            top: Dimensions.height45,
+            bottom: Dimensions.height15,
+          ),
+          padding: EdgeInsets.only(
+            left: Dimensions.width20,
+            right: Dimensions.width20,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,41 +38,37 @@ class _MainFoodPageState extends State<MainFoodPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   BigText(
-                  text: "India",
-                  size: 32,
-                  color: AppColors.COUNTRY_NAME,
-                  weight: FontWeight.w600,
+                    text: "India",
+                    size: 32,
+                    color: AppColors.COUNTRY_NAME,
+                    weight: FontWeight.w600,
                   ),
-                  const SizedBox(height: 4),
-                  const Row(
-                    children: [
-                      SmallText(
-                        text: "City",
-                        size: 16,
-                        color: Colors.black54,
-                      ),
+                  SizedBox(height: 4),
+                  Row(
+                    children: const [
+                      SmallText(text: "City", size: 16, color: Colors.black54),
                       Icon(Icons.arrow_drop_down_rounded),
                     ],
                   ),
                 ],
               ),
               Container(
-                width: 45,
-                height: 45,
+                width: Dimensions.height45,
+                height: Dimensions.height45,
                 decoration: BoxDecoration(
                   color: AppColors.Search_Button,
                   borderRadius: BorderRadius.circular(Dimensions.radius15),
                 ),
-                child: const Icon(Icons.search, color: Colors.white),
+                child: Icon(Icons.search, color: Colors.white, size: Dimensions.iconSize24),
               ),
             ],
           ),
         ),
-      ),
-        FoodPageBody(),
-        
-        ],
-      ),
-    );
+
+        Expanded(child: FoodPageBody()),
+      ],
+    ),
+  ),
+);
   }
 }
