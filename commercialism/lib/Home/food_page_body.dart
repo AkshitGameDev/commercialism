@@ -2,13 +2,15 @@ import 'package:commercialism/AppColors.dart';
 import 'package:commercialism/Widgets/Icon_and_text_widget.dart';
 import 'package:commercialism/Widgets/big_text.dart';
 import 'package:commercialism/Utils/dimensions.dart';
+import 'package:commercialism/Widgets/small_Text.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
 
-State<FoodPageBody> createState() => _FoodPageBodyState();
+  @override
+  State<FoodPageBody> createState() => _FoodPageBodyState();
 }
 
 class _FoodPageBodyState extends State<FoodPageBody> {
@@ -40,6 +42,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return  Column(
       children: [
+        //slider section
         Container(
           height: Dimensions.pageView,
           child: PageView.builder(
@@ -50,6 +53,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             },
           ),
         ),
+        SizedBox(height: Dimensions.height20),
+        // dots section
         new DotsIndicator(
           dotsCount: 5,
           position: _currentPageValue,
@@ -58,6 +63,28 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             size: const Size.square(9.0),
             activeSize: const Size(18.0, 9.0),
             activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+          ),
+        ),
+        //popular text
+        SizedBox(height: Dimensions.height30),
+        Container(
+          margin: EdgeInsets.only(left: Dimensions.width30),
+          child: 
+            Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              BigText(text: "Popular"),
+              SizedBox(width: Dimensions.width10),
+              Container(
+                margin: const EdgeInsets.only(bottom: 3),
+                child: BigText(text: ".", color: Colors.black26),
+              ),
+              SizedBox(width: Dimensions.width10),
+              Container(
+                margin: const EdgeInsets.only(bottom: 2),
+                child: SmallText(text: "Food pairing"),
+              ),
+            ],
           ),
         ),
       ],

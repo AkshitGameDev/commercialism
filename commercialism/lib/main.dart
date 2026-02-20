@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget
       debugShowCheckedModeBanner: false,
       title: 'Commercialism',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white12),
         useMaterial3: true,
       ),
       home: const MainFoodPage(),
