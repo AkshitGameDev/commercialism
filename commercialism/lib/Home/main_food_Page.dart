@@ -21,6 +21,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
   body: SafeArea(
     child: Column(
       children: [
+        // header
         Container(
           margin: EdgeInsets.only(
             top: Dimensions.height45,
@@ -65,7 +66,12 @@ class _MainFoodPageState extends State<MainFoodPage> {
           ),
         ),
 
-        Expanded(child: FoodPageBody()),
+        // whole page scrolls
+        Expanded(
+          child: SingleChildScrollView(
+            child: FoodPageBody(),
+          ),
+        ),
       ],
     ),
   ),
