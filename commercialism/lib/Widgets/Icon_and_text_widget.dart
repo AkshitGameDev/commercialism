@@ -1,4 +1,5 @@
 import 'package:commercialism/Widgets/small_Text.dart';
+import 'package:commercialism/utils/dimensions.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class IconAndTextWidget extends StatelessWidget {
       padding: const EdgeInsets.all(5),
       child: Row(
         children: [
-          Icon(icon, color: iconColor, size: 15),
+          Icon(icon, color: iconColor, size: Dimensions.iconSize24),
           const SizedBox(width: 5),
           SmallText(text: text),
         ],

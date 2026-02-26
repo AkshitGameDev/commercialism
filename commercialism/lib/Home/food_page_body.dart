@@ -2,13 +2,15 @@ import 'package:commercialism/AppColors.dart';
 import 'package:commercialism/Widgets/Icon_and_text_widget.dart';
 import 'package:commercialism/Widgets/big_text.dart';
 import 'package:commercialism/Utils/dimensions.dart';
+import 'package:commercialism/Widgets/small_Text.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
 
-State<FoodPageBody> createState() => _FoodPageBodyState();
+  @override
+  State<FoodPageBody> createState() => _FoodPageBodyState();
 }
 
 class _FoodPageBodyState extends State<FoodPageBody> {
@@ -36,33 +38,98 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     super.dispose();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return  Column(
-      children: [
-        Container(
-          height: Dimensions.pageView,
-          child: PageView.builder(
-            controller: pageController,
-            itemCount: 5,
-            itemBuilder: (context, position) {
-              return _buldPageItem(position);
-            },
+@override
+Widget build(BuildContext context) {
+  return Column(
+    children: [
+      // SLIDER
+      SizedBox(
+        height: Dimensions.pageView,
+        child: PageView.builder(
+          controller: pageController,
+          itemCount: 5,
+          itemBuilder: (context, position) {
+            return _buldPageItem(position);
+          },
+        ),
+      ),
+
+      SizedBox(height: Dimensions.height20),
+
+      // DOTS
+      DotsIndicator(
+        dotsCount: 5,
+        position: _currentPageValue,
+        decorator: DotsDecorator(
+          activeColor: AppColors.success,
+          size: const Size.square(9.0),
+          activeSize: const Size(18.0, 9.0),
+          activeShape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
           ),
         ),
-        new DotsIndicator(
-          dotsCount: 5,
-          position: _currentPageValue,
-          decorator: DotsDecorator(
-            activeColor: AppColors.success,
-            size: const Size.square(9.0),
-            activeSize: const Size(18.0, 9.0),
-            activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-          ),
+      ),
+
+      SizedBox(height: Dimensions.height30),
+
+      // TITLE ROW
+      Container(
+        margin: EdgeInsets.only(left: Dimensions.width30),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            BigText(text: "Popular"),
+            SizedBox(width: Dimensions.width10),
+            Container(
+              margin: const EdgeInsets.only(bottom: 3),
+              child: BigText(text: ".", color: Colors.black26),
+            ),
+            SizedBox(width: Dimensions.width10),
+            Container(
+              margin: const EdgeInsets.only(bottom: 2),
+              child: SmallText(text: "Food pairing"),
+            ),
+          ],
         ),
-      ],
-    );
-  }
+      ),
+
+      SizedBox(height: Dimensions.height10),
+
+      // LIST VIEW (MUST be Expanded)
+      Expanded(
+        child: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return Container(
+              margin: EdgeInsets.only(
+                left: Dimensions.width20,
+                right: Dimensions.width20,
+                bottom: Dimensions.height10,
+              ),
+              child: Row(
+                children: [
+                  // IMAGE
+                  Container(
+                    width: Dimensions.width30 * 4,
+                    height: Dimensions.width30 * 4,
+                    decoration: BoxDecoration(
+                      borderRadius:
+                          BorderRadius.circular(Dimensions.radius20),
+                      image: const DecorationImage(
+                        image: AssetImage("assets/images/food0.jpg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
+      ),
+    ],
+  );
+}
   Widget _buldPageItem(int index) {
     Matrix4 matrix = new Matrix4.identity();
     if(index == _currentPageValue.floor()){
@@ -77,7 +144,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       matrix = Matrix4.diagonal3Values(1, currScale, 1)..setTranslationRaw(0, currTrans, 0);
     }
     else if(index == _currentPageValue.floor() - 1){
-      var currScale = 1 - (_currentPageValue - index) * (1 - _scaleFactor); // for the page on left :D
+      var currScale = 1 - (_currentPageValue - index) * (1 - _scaleFactor); // for the page on left :(
       var currTrans = _height * (1 - currScale) / 2;
       matrix = Matrix4.diagonal3Values(1, currScale, 1);   
       matrix = Matrix4.diagonal3Values(1, currScale, 1)..setTranslationRaw(0, currTrans, 0);
@@ -156,7 +223,6 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       const Text("comments"),
                     ],
                   ),
-                  SizedBox(height: Dimensions.height20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
