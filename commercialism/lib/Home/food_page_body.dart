@@ -38,25 +38,21 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     super.dispose();
   }
 
-@override
+  @override
 Widget build(BuildContext context) {
   return Column(
     children: [
-      // SLIDER
       SizedBox(
         height: Dimensions.pageView,
         child: PageView.builder(
           controller: pageController,
           itemCount: 5,
-          itemBuilder: (context, position) {
-            return _buldPageItem(position);
-          },
+          itemBuilder: (context, position) => _buldPageItem(position),
         ),
       ),
 
-      SizedBox(height: Dimensions.height20),
+      SizedBox(height: Dimensions.height10),
 
-      // DOTS
       DotsIndicator(
         dotsCount: 5,
         position: _currentPageValue,
@@ -70,9 +66,8 @@ Widget build(BuildContext context) {
         ),
       ),
 
-      SizedBox(height: Dimensions.height30),
+      SizedBox(height: Dimensions.height10),
 
-      // TITLE ROW
       Container(
         margin: EdgeInsets.only(left: Dimensions.width30),
         child: Row(
@@ -94,42 +89,74 @@ Widget build(BuildContext context) {
       ),
 
       SizedBox(height: Dimensions.height10),
+      ListView.builder(
+        itemCount: 10,
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) {
+          return Container(
+            margin: EdgeInsets.only(
+              left: Dimensions.width20,
+              right: Dimensions.width20,
+              bottom: Dimensions.height10,
+            ),
+            child: Row(
+              children: [
+                //image section
+                Container(
+                  width: Dimensions.height30 * 4,
+                  height: Dimensions.height30 * 4,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Dimensions.radius20),
+                    image: const DecorationImage(
 
-      // LIST VIEW (MUST be Expanded)
-      Expanded(
-        child: ListView.builder(
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return Container(
-              margin: EdgeInsets.only(
-                left: Dimensions.width20,
-                right: Dimensions.width20,
-                bottom: Dimensions.height10,
-              ),
-              child: Row(
-                children: [
-                  // IMAGE
-                  Container(
-                    width: Dimensions.width30 * 4,
-                    height: Dimensions.width30 * 4,
-                    decoration: BoxDecoration(
-                      borderRadius:
-                          BorderRadius.circular(Dimensions.radius20),
-                      image: const DecorationImage(
-                        image: AssetImage("assets/images/food0.jpg"),
-                        fit: BoxFit.cover,
-                      ),
+                      image: AssetImage("assets/images/food0.jpg"),
+                      fit: BoxFit.cover,
                     ),
                   ),
-                ],
-              ),
-            );
-          },
-        ),
+                ),
+                //text container
+                Expanded(
+                  child: Container(
+                    height: Dimensions.height30 * 4,
+                    // width: Dimensions.screenWidth - Dimensions.width30 * 4 - Dimensions.width20 * 2,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(Dimensions.radius20),
+                        bottomRight: Radius.circular(Dimensions.radius20),
+                      ),
+                      color: Colors.white,
+                    ),
+                    child: Padding(padding:   EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10), child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        BigText(text: "Nutricious Fruit meal with chinese characteristics"),
+                        SizedBox(height: Dimensions.height10),
+                        SmallText(text: "With chinese characteristics it's very nutrious i love it"),
+                        SizedBox(height: Dimensions.height10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconAndTextWidget(icon: (Icons.circle), text: "Normal", iconColor: Colors.orange),
+                            IconAndTextWidget(icon: Icons.location_on, text: "1.7km", iconColor: AppColors.primary),
+                            IconAndTextWidget(icon: Icons.accessibility_new_outlined, text: "32min", iconColor: AppColors.danger)
+                          ],
+                        )
+                      ],
+                    )),
+                  ),
+                )
+              ],
+            ),
+          );
+        },
       ),
     ],
   );
 }
+
+
   Widget _buldPageItem(int index) {
     Matrix4 matrix = new Matrix4.identity();
     if(index == _currentPageValue.floor()){
@@ -241,6 +268,4 @@ Widget build(BuildContext context) {
     ),
   );
 }
-
-
 }
