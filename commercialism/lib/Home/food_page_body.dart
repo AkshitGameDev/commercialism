@@ -102,18 +102,51 @@ Widget build(BuildContext context) {
             ),
             child: Row(
               children: [
+                //image section
                 Container(
-                  width: Dimensions.width30 * 4,
-                  height: Dimensions.width30 * 4,
+                  width: Dimensions.height30 * 4,
+                  height: Dimensions.height30 * 4,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(Dimensions.radius20),
                     image: const DecorationImage(
+
                       image: AssetImage("assets/images/food0.jpg"),
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
-              
+                //text container
+                Expanded(
+                  child: Container(
+                    height: Dimensions.height30 * 4,
+                    // width: Dimensions.screenWidth - Dimensions.width30 * 4 - Dimensions.width20 * 2,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(Dimensions.radius20),
+                        bottomRight: Radius.circular(Dimensions.radius20),
+                      ),
+                      color: Colors.white,
+                    ),
+                    child: Padding(padding:   EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10), child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        BigText(text: "Nutricious Fruit meal with chinese characteristics"),
+                        SizedBox(height: Dimensions.height10),
+                        SmallText(text: "With chinese characteristics it's very nutrious i love it"),
+                        SizedBox(height: Dimensions.height10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconAndTextWidget(icon: (Icons.circle), text: "Normal", iconColor: Colors.orange),
+                            IconAndTextWidget(icon: Icons.location_on, text: "1.7km", iconColor: AppColors.primary),
+                            IconAndTextWidget(icon: Icons.accessibility_new_outlined, text: "32min", iconColor: AppColors.danger)
+                          ],
+                        )
+                      ],
+                    )),
+                  ),
+                )
               ],
             ),
           );
