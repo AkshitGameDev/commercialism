@@ -84,7 +84,69 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 margin: const EdgeInsets.only(bottom: 2),
                 child: SmallText(text: "Food pairing"),
               ),
-            ],
+              //list of food and images
+              ListView.builder(
+                itemCount: 10,
+                 shrinkWrap: true,
+                 physics: NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index){
+                  return Container(
+                    margin: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: Dimensions.width10, //
+                          height: Dimensions.width10,//
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(Dimensions.radius20),
+                            color: Colors.white38,
+                            image: const DecorationImage(
+                              image: AssetImage("assets/images/food0.jpg"),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            height:300,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(Dimensions.radius20),
+                                bottomRight: Radius.circular(Dimensions.radius20),
+                              ),
+                              color: Colors.white,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  BigText(text: "Chinese Side"),
+                                  SizedBox(height: Dimensions.height10),
+                                  SmallText(text: "With chinese characteristics"),
+                                  SizedBox(height: Dimensions.height10),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      IconAndTextWidget(icon: (Icons.circle), text: "Normal", iconColor: Colors.orange),
+                                      IconAndTextWidget(icon: Icons.location_on, text: "1.7km", iconColor: AppColors.primary),
+                                      IconAndTextWidget(icon: Icons.accessibility_new_outlined, text: "32min", iconColor: AppColors.danger)
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+
+                  );
+              }
+              ),
+            ]
+            ,
           ),
         ),
       ],
@@ -104,7 +166,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       matrix = Matrix4.diagonal3Values(1, currScale, 1)..setTranslationRaw(0, currTrans, 0);
     }
     else if(index == _currentPageValue.floor() - 1){
-      var currScale = 1 - (_currentPageValue - index) * (1 - _scaleFactor); // for the page on left :D
+      var currScale = 1 - (_currentPageValue - index) * (1 - _scaleFactor); // for the page on left :(
       var currTrans = _height * (1 - currScale) / 2;
       matrix = Matrix4.diagonal3Values(1, currScale, 1);   
       matrix = Matrix4.diagonal3Values(1, currScale, 1)..setTranslationRaw(0, currTrans, 0);
