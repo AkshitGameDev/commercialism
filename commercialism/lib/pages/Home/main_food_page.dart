@@ -1,5 +1,5 @@
 import 'package:commercialism/AppColors.dart';
-import 'package:commercialism/Home/food_page_body.dart';
+import 'package:commercialism/pages/Home/food_page_body.dart';
 import 'package:commercialism/Utils/dimensions.dart';
 import 'package:commercialism/Widgets/big_text.dart';
 import 'package:commercialism/Widgets/small_Text.dart';

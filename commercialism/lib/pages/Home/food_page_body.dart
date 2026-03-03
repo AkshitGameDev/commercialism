@@ -104,8 +104,8 @@ Widget build(BuildContext context) {
               children: [
                 //image section
                 Container(
-                  width: Dimensions.height30 * 4,
-                  height: Dimensions.height30 * 4,
+                  width: Dimensions.listViewImgSize,
+                  height: Dimensions.listViewImgSize,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(Dimensions.radius20),
                     image: const DecorationImage(
@@ -118,7 +118,7 @@ Widget build(BuildContext context) {
                 //text container
                 Expanded(
                   child: Container(
-                    height: Dimensions.height30 * 4,
+                    height: Dimensions.listViewTextContSize,
                     // width: Dimensions.screenWidth - Dimensions.width30 * 4 - Dimensions.width20 * 2,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
