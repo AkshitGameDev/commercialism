@@ -28,7 +28,7 @@ class PopularFoodDetail extends StatelessWidget {
           Positioned(
             left: Dimensions.width20,
             right: Dimensions.width20,
-            height: Dimensions.height45,
+            top: Dimensions.height45,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -36,7 +36,19 @@ class PopularFoodDetail extends StatelessWidget {
               AppIcon(icon: Icons.shopping_cart_outlined)
               ],
             ),
-          )
+          ),
+          Positioned(child: Container(
+            margin: EdgeInsets.only(top: Dimensions.popularFoodImgSize - 20),
+            padding: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, top: Dimensions.height20),
+            height: 500,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(Dimensions.radius20),
+                topRight: Radius.circular(Dimensions.radius20)
+              )
+            ),
+          ))
         ],
       ),
     );

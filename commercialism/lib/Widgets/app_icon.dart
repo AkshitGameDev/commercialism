@@ -1,3 +1,4 @@
+import 'package:commercialism/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 
 class AppIcon extends StatelessWidget {
@@ -27,7 +28,7 @@ class AppIcon extends StatelessWidget {
       child: Icon(
         icon,
         color: iconColor,
-        size: size * 0.5, // ps: tempScale
+        size: Dimensions.iconSize16,
       ),
     );
   }
