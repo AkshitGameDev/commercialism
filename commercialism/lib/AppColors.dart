@@ -7,6 +7,8 @@ class AppColors {
   static final Color primaryVariant = const Color(0xFF0060DF);
   static final Color accent = const Color(0xFFFFC107);
   static final Color background = const  Color(0xFFF5F7FA);
+  static final Color white = const Color(0xFFFFFFFF);
+  static final Color black = const Color(0xFF000000);
   static final Color surface = const Color(0xFFFFFFFF);
   static final Color textPrimary = const  Color(0xFF111827);
   static final Color textSecondary = const  Color(0xFF6B7280);
@@ -18,4 +20,6 @@ class AppColors {
   static final Color COUNTRY_NAME = const Color(0xFF1AFFC2);
   static final Color Search_Button = const Color(0xFF7ED5C8);
   static final Color ShadowColor = const Color(0xFF6B6B6B);
+  static final Color buttonBackgroundColor = const Color(0xFFF4F4F1);
+  static final Color titleColor = const Color(0xFF111827);
 }

@@ -1,6 +1,9 @@
+import 'package:commercialism/AppColors.dart';
+import 'package:commercialism/Widgets/app_column.dart';
 import 'package:commercialism/Widgets/app_icon.dart';
+import 'package:commercialism/Widgets/big_text.dart';
+import 'package:commercialism/app_texts.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:commercialism/utils/dimensions.dart';
 
 class PopularFoodDetail extends StatelessWidget {
@@ -9,6 +12,7 @@ class PopularFoodDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: Stack(
         children: [
           Positioned(
@@ -32,24 +36,84 @@ class PopularFoodDetail extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-              AppIcon(icon: Icons.arrow_back_ios),
-              AppIcon(icon: Icons.shopping_cart_outlined)
+                AppIcon(icon: Icons.arrow_back_ios),
+                AppIcon(icon: Icons.shopping_cart_outlined),
               ],
             ),
           ),
-          Positioned(child: Container(
-            margin: EdgeInsets.only(top: Dimensions.popularFoodImgSize - 20),
-            padding: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, top: Dimensions.height20),
-            height: 500,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(Dimensions.radius20),
-                topRight: Radius.circular(Dimensions.radius20)
-              )
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            top: Dimensions.popularFoodImgSize - 20,
+            child: Container(
+              padding: EdgeInsets.only(
+                left: Dimensions.width20,
+                right: Dimensions.width20,
+                top: Dimensions.height20,
+              ),
+              height: 500,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(Dimensions.radius20),
+                  topRight: Radius.circular(Dimensions.radius20),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AppColumn(text: "Chinease Side", size: Dimensions.font20),
+                  SizedBox(height: Dimensions.height20),
+                  BigText(text: "Introduce"),
+                  SizedBox(height: Dimensions.height10),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Text(
+                        AppTexts.TestParagraph,
+                        style: TextStyle(fontSize: Dimensions.font16),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ))
+          ),
         ],
+      ),
+      bottomNavigationBar: Container(
+        width: 120,
+        padding: EdgeInsets.only(
+          top: Dimensions.height20,
+          bottom: Dimensions.height20,
+          left: Dimensions.width20,
+          right: Dimensions.width20,
+        ),
+        decoration: BoxDecoration(
+          color: AppColors.buttonBackgroundColor,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(Dimensions.radius20),
+            topRight: Radius.circular(Dimensions.radius20),
+          ),
+        ),
+        child: Row(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: BorderRadius.circular(Dimensions.radius20),
+              ),
+              child: Row(
+                children: [
+                  Icon( Icons.remove, color: AppColors.titleColor),
+                  BigText(text: "0"),
+                  Icon( Icons.add, color: AppColors.titleColor),
+                ],
+              ),
+            ),
+          ],
+          
+        ),
       ),
     );
   }
