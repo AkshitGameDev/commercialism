@@ -1,6 +1,6 @@
+import 'package:commercialism/Widgets/app_column.dart';
 import 'package:commercialism/Widgets/app_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:commercialism/utils/dimensions.dart';
 
 class PopularFoodDetail extends StatelessWidget {
@@ -37,8 +37,12 @@ class PopularFoodDetail extends StatelessWidget {
               ],
             ),
           ),
-          Positioned(child: Container(
-            margin: EdgeInsets.only(top: Dimensions.popularFoodImgSize - 20),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            top: Dimensions.popularFoodImgSize - 20,
+            child: Container(
             padding: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, top: Dimensions.height20),
             height: 500,
             decoration: BoxDecoration(
@@ -48,6 +52,7 @@ class PopularFoodDetail extends StatelessWidget {
                 topRight: Radius.circular(Dimensions.radius20)
               )
             ),
+            child: AppColumn(),
           ))
         ],
       ),
