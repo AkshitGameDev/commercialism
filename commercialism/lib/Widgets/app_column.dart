@@ -5,14 +5,21 @@ import 'package:commercialism/utils/dimensions.dart';
 import 'package:commercialism/AppColors.dart';
 
 class AppColumn extends StatelessWidget {
-  const AppColumn({Key? key}) : super(key: key);
+
+
+  final String text;
+  final double size;
+
+  const AppColumn({Key? key, required this.text, required this.size}) : super(key: key);
+
+
 
   @override
   Widget build(BuildContext context) {
     return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  BigText(text: "Chinese Side"),
+                  BigText(text: text, size: size,),
                   SizedBox(height: Dimensions.height10),
                   Row(
                     children: [
