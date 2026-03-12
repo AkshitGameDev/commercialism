@@ -69,7 +69,9 @@ class PopularFoodDetail extends StatelessWidget {
                   SizedBox(height: Dimensions.height10),
                   Expanded(
                     child: SingleChildScrollView(
-                      child: Container(),
+                      child: Container(
+                        //add text view
+                      ),
                     ),
                   ),
                 ],
