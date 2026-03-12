@@ -69,10 +69,7 @@ class PopularFoodDetail extends StatelessWidget {
                   SizedBox(height: Dimensions.height10),
                   Expanded(
                     child: SingleChildScrollView(
-                      child: Text(
-                        AppTexts.TestParagraph,
-                        style: TextStyle(fontSize: Dimensions.font16),
-                      ),
+                      child: Container(),
                     ),
                   ),
                 ],
@@ -82,7 +79,7 @@ class PopularFoodDetail extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: Container(
-        width: 120,
+        width: Dimensions.bottomHeightBar,
         padding: EdgeInsets.only(
           top: Dimensions.height20,
           bottom: Dimensions.height20,
@@ -97,20 +94,42 @@ class PopularFoodDetail extends StatelessWidget {
           ),
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
+              padding: EdgeInsets.only(
+                top: Dimensions.height10,
+                bottom: Dimensions.height10,
+                left: Dimensions.height10,
+                right: Dimensions.height10,
+              ),
               decoration: BoxDecoration(
                 color: AppColors.white,
                 borderRadius: BorderRadius.circular(Dimensions.radius20),
               ),
               child: Row(
                 children: [
-                  Icon( Icons.remove, color: AppColors.titleColor),
+                  Icon( Icons.remove, color: AppColors.iconColor1),
+                  SizedBox(width: Dimensions.width10/2,),
                   BigText(text: "0"),
-                  Icon( Icons.add, color: AppColors.titleColor),
+                  SizedBox(width: Dimensions.width10/2,),
+                  Icon( Icons.add, color: AppColors.iconColor1),
                 ],
               ),
             ),
+            Container(
+              padding: EdgeInsets.only(
+                top: Dimensions.height10,
+                bottom: Dimensions.height10,
+                left: Dimensions.height10,
+                right: Dimensions.height10,
+              ),
+              child: BigText(text: "\$10 | Add to cart", color: AppColors.white),
+              decoration: BoxDecoration(
+                color: AppColors.cyan,
+                borderRadius: BorderRadius.circular(Dimensions.radius20),
+              ),
+            )
           ],
           
         ),

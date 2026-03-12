@@ -22,4 +22,6 @@ class AppColors {
   static final Color ShadowColor = const Color(0xFF6B6B6B);
   static final Color buttonBackgroundColor = const Color(0xFFF4F4F1);
   static final Color titleColor = const Color(0xFF111827);
+  static final Color iconColor1 = const Color(0xFF756d54);
+  static final Color cyan = const Color(0xFF80D5C9);
 }
