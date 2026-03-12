@@ -15,6 +15,7 @@ class PopularFoodDetail extends StatelessWidget {
       backgroundColor: AppColors.white,
       body: Stack(
         children: [
+          //backgroung image
           Positioned(
             left: 0,
             right: 0,
@@ -29,6 +30,7 @@ class PopularFoodDetail extends StatelessWidget {
               ),
             ),
           ),
+          //icons widget
           Positioned(
             left: Dimensions.width20,
             right: Dimensions.width20,
@@ -41,6 +43,7 @@ class PopularFoodDetail extends StatelessWidget {
               ],
             ),
           ),
+          //introduction of food
           Positioned(
             left: 0,
             right: 0,
@@ -67,17 +70,11 @@ class PopularFoodDetail extends StatelessWidget {
                   SizedBox(height: Dimensions.height20),
                   BigText(text: "Introduce"),
                   SizedBox(height: Dimensions.height10),
-                  Expanded(
-                    child: SingleChildScrollView(
-                      child: Container(
-                        //add text view
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
           ),
+          // expandable text widget
         ],
       ),
       bottomNavigationBar: Container(
