@@ -2,7 +2,7 @@ import 'package:commercialism/AppColors.dart';
 import 'package:commercialism/Widgets/app_column.dart';
 import 'package:commercialism/Widgets/app_icon.dart';
 import 'package:commercialism/Widgets/big_text.dart';
-import 'package:commercialism/app_texts.dart';
+import 'package:commercialism/Widgets/expandable_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:commercialism/utils/dimensions.dart';
 
@@ -70,6 +70,7 @@ class PopularFoodDetail extends StatelessWidget {
                   SizedBox(height: Dimensions.height20),
                   BigText(text: "Introduce"),
                   SizedBox(height: Dimensions.height10),
+                  ExpandableTextWidget(text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Donec auctor, nisl eget ultricies lacinia, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc. Donec auctor, nisl eget ultricies lacinia, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nunc.")
                 ],
               ),
             ),
