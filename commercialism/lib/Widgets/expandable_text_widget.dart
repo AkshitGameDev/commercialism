@@ -1,4 +1,5 @@
 import 'package:commercialism/Widgets/small_Text.dart';
+import 'package:commercialism/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 
 class ExpandableTextWidget extends StatefulWidget {
@@ -24,11 +25,16 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
+
         Text(
           widget.text,
           softWrap: true,
           overflow: hiddenText ? TextOverflow.ellipsis : TextOverflow.visible,
           maxLines: hiddenText ? 4 : null,
+          style: TextStyle(
+                    fontSize: Dimensions.font16,
+          )
+          
         ),
         if (isLongText)
           InkWell(
@@ -43,10 +49,13 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
                 SmallText(
                   text: hiddenText ? "Show more" : "Show less",
                   color: Colors.blue,
+                  size: Dimensions.font16,
+                  
                 ),
                 Icon(
                   hiddenText ? Icons.arrow_drop_down : Icons.arrow_drop_up,
                   color: Colors.blue,
+                  size: Dimensions.font16,
                 ),
               ],
             ),
