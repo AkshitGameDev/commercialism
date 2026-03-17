@@ -9,10 +9,12 @@ class RecommendedFoodDetails extends StatelessWidget {
       body: CustomScrollView(
         slivers:[
           SliverAppBar(
+            expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
                 'assets/images/food0.jpg',
                 width: double.maxFinite,
+                fit: BoxFit.cover,
                 )
               ),
             ),
