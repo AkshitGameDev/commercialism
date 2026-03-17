@@ -1,3 +1,4 @@
+import 'package:commercialism/Widgets/small_Text.dart';
 import 'package:flutter/material.dart';
 import 'package:commercialism/Widgets/icon_and_text_widget.dart';
 import 'package:commercialism/Widgets/big_text.dart';
@@ -34,11 +35,11 @@ class AppColumn extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 10),
-                      const Text("4.5"),
+                      const SmallText(text: "4.5"),
                       const SizedBox(width: 10),
-                      const Text("1287"),
+                      const SmallText(text: "1287"),
                       const SizedBox(width: 10),
-                      const Text("comments"),
+                      const SmallText(text: "comments",),
                     ],
                   ),
                   Row(
