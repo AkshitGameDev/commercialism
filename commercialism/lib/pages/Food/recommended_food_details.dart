@@ -1,4 +1,5 @@
 
+import 'package:commercialism/Widgets/app_icon.dart';
 import 'package:commercialism/Widgets/big_text.dart';
 import 'package:commercialism/app_texts.dart';
 import 'package:flutter/material.dart';
@@ -13,11 +14,25 @@ class RecommendedFoodDetails extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            pinned: true,
+            toolbarHeight: 120,
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppIcon(icon: Icons.clear),
+                AppIcon(icon: Icons.shopping_cart_outlined),
+              ],
+            ),
             bottom: PreferredSize(
               preferredSize: Size.fromHeight(20),
-              child: Text("SliverAppBar"),
+              child: Container(
+                padding: EdgeInsets.only(top: Dimensions.height10, bottom: Dimensions.height10),
+                color: Color(0xFFF5FAFB),
+                child: Center(child: BigText(text: 'Chinease Side', size: Dimensions.font26,)),
+                width: double.maxFinite,
+              ),
             ),
-            expandedHeight: 300,
+            expandedHeight: 400,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
                 'assets/images/food0.jpg',
@@ -29,10 +44,6 @@ class RecommendedFoodDetails extends StatelessWidget {
           SliverToBoxAdapter(
             child: Column(
               children: [
-                Container(
-                  margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
-                  child: const BigText(text: 'Nutritious fruit meal in China'),
-                ),
                 Container(
                   margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
                   child: Text(
