@@ -1,4 +1,3 @@
-
 import 'package:commercialism/Widgets/app_icon.dart';
 import 'package:commercialism/Widgets/big_text.dart';
 import 'package:commercialism/app_texts.dart';
@@ -15,7 +14,7 @@ class RecommendedFoodDetails extends StatelessWidget {
         slivers: [
           SliverAppBar(
             pinned: true,
-            toolbarHeight: 120,
+            toolbarHeight: 90,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -26,10 +25,24 @@ class RecommendedFoodDetails extends StatelessWidget {
             bottom: PreferredSize(
               preferredSize: Size.fromHeight(20),
               child: Container(
-                padding: EdgeInsets.only(top: Dimensions.height10, bottom: Dimensions.height10),
-                color: Color(0xFFF5FAFB),
-                child: Center(child: BigText(text: 'Chinease Side', size: Dimensions.font26,)),
+                padding: EdgeInsets.only(
+                  top: Dimensions.height10,
+                  bottom: Dimensions.height10,
+                ),
                 width: double.maxFinite,
+                decoration: BoxDecoration(
+                  color: Color(0xFFF5FAFB),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(Dimensions.radius20),
+                    topRight: Radius.circular(Dimensions.radius20),
+                  ),
+                ),
+                child: Center(
+                  child: BigText(
+                    text: 'Chinease Side',
+                    size: Dimensions.font26,
+                  ),
+                ),
               ),
             ),
             expandedHeight: 400,
@@ -47,14 +60,20 @@ class RecommendedFoodDetails extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
                   child: Text(
-                    AppTexts.TestParagraph + AppTexts.TestParagraph +
-                        AppTexts.TestParagraph+ AppTexts.TestParagraph +
-                        AppTexts.TestParagraph+ AppTexts.TestParagraph +
+                    AppTexts.TestParagraph +
+                        AppTexts.TestParagraph +
+                        AppTexts.TestParagraph +
+                        AppTexts.TestParagraph +
+                        AppTexts.TestParagraph +
+                        AppTexts.TestParagraph +
                         AppTexts.TestParagraph,
-                    style: TextStyle(fontSize: Dimensions.font16, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: Dimensions.font16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-                ],
+              ],
             ),
           ),
         ],
