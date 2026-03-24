@@ -1,5 +1,6 @@
 import 'package:commercialism/Widgets/app_icon.dart';
 import 'package:commercialism/Widgets/big_text.dart';
+import 'package:commercialism/Widgets/expandable_text_widget.dart';
 import 'package:commercialism/app_texts.dart';
 import 'package:flutter/material.dart';
 import 'package:commercialism/Utils/dimensions.dart';
@@ -59,18 +60,15 @@ class RecommendedFoodDetails extends StatelessWidget {
               children: [
                 Container(
                   margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
-                  child: Text(
-                    AppTexts.TestParagraph +
-                        AppTexts.TestParagraph +
-                        AppTexts.TestParagraph +
-                        AppTexts.TestParagraph +
-                        AppTexts.TestParagraph +
-                        AppTexts.TestParagraph +
-                        AppTexts.TestParagraph,
-                    style: TextStyle(
-                      fontSize: Dimensions.font16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        child: 
+                      ExpandableTextWidget(text: AppTexts.TestParagraph +AppTexts.TestParagraph +AppTexts.TestParagraph +AppTexts.TestParagraph +AppTexts.TestParagraph +AppTexts.TestParagraph +AppTexts.TestParagraph+AppTexts.TestParagraph +AppTexts.TestParagraph ),
+                      margin: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, )
+                      )
+                    ],
                   ),
                 ),
               ],
