@@ -1,3 +1,4 @@
+import 'package:commercialism/AppColors.dart';
 import 'package:commercialism/Widgets/app_icon.dart';
 import 'package:commercialism/Widgets/big_text.dart';
 import 'package:commercialism/Widgets/expandable_text_widget.dart';
@@ -19,8 +20,11 @@ class RecommendedFoodDetails extends StatelessWidget {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppIcon(icon: Icons.clear, iconSize: Dimensions.iconSize24,),
-                AppIcon(icon: Icons.shopping_cart_outlined, iconSize: Dimensions.iconSize24,),
+                AppIcon(icon: Icons.clear, iconSize: Dimensions.iconSize24),
+                AppIcon(
+                  icon: Icons.shopping_cart_outlined,
+                  iconSize: Dimensions.iconSize24,
+                ),
               ],
             ),
             bottom: PreferredSize(
@@ -64,11 +68,117 @@ class RecommendedFoodDetails extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        child: 
-                      ExpandableTextWidget(text: AppTexts.TestParagraph +AppTexts.TestParagraph +AppTexts.TestParagraph +AppTexts.TestParagraph +AppTexts.TestParagraph +AppTexts.TestParagraph +AppTexts.TestParagraph+AppTexts.TestParagraph +AppTexts.TestParagraph ),
-                      margin: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, )
-                      )
+                        child: ExpandableTextWidget(
+                          text:
+                              AppTexts.TestParagraph +
+                              AppTexts.TestParagraph +
+                              AppTexts.TestParagraph +
+                              AppTexts.TestParagraph +
+                              AppTexts.TestParagraph +
+                              AppTexts.TestParagraph +
+                              AppTexts.TestParagraph +
+                              AppTexts.TestParagraph +
+                              AppTexts.TestParagraph,
+                        ),
+                        margin: EdgeInsets.only(
+                          left: Dimensions.width20,
+                          right: Dimensions.width20,
+                        ),
+                      ),
                     ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            padding: EdgeInsets.only(
+              left: Dimensions.width20 * 9,
+              right: Dimensions.width20 * 9,
+              top: Dimensions.height10,
+              bottom: Dimensions.height10,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppIcon(
+                  icon: Icons.remove,
+                  iconSize: Dimensions.iconSize26,
+                  backgroundColor: AppColors.cyan,
+                  iconColor: Colors.white,
+                ),
+                BigText(
+                  text: "\$10.00 " + " x " + " 0",
+                  color: Colors.black54,
+                  size: Dimensions.font26,
+                ),
+                AppIcon(
+                  icon: Icons.add,
+                  iconSize: Dimensions.iconSize26,
+                  backgroundColor: AppColors.cyan,
+                  iconColor: Colors.white,
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: double.maxFinite,
+            padding: EdgeInsets.only(
+              top: Dimensions.height20,
+              bottom: Dimensions.height20,
+              left: Dimensions.width20,
+              right: Dimensions.width20,
+            ),
+            decoration: BoxDecoration(
+              color: AppColors.buttonBackgroundColor,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(Dimensions.radius20),
+                topRight: Radius.circular(Dimensions.radius20),
+              ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  padding: EdgeInsets.only(
+                    top: Dimensions.height10,
+                    bottom: Dimensions.height10,
+                    left: Dimensions.height10,
+                    right: Dimensions.height10,
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(Dimensions.radius20),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(Icons.remove, color: AppColors.iconColor1),
+                      SizedBox(width: Dimensions.width10 / 2),
+                      BigText(text: "0"),
+                      SizedBox(width: Dimensions.width10 / 2),
+                      Icon(Icons.add, color: AppColors.iconColor1),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(
+                    top: Dimensions.height10,
+                    bottom: Dimensions.height10,
+                    left: Dimensions.height10,
+                    right: Dimensions.height10,
+                  ),
+                  child: BigText(
+                    text: "\$10 | Add to cart",
+                    color: AppColors.white,
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppColors.cyan,
+                    borderRadius: BorderRadius.circular(Dimensions.radius20),
                   ),
                 ),
               ],
