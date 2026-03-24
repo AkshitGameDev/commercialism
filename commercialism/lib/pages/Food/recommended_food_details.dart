@@ -18,8 +18,8 @@ class RecommendedFoodDetails extends StatelessWidget {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppIcon(icon: Icons.clear),
-                AppIcon(icon: Icons.shopping_cart_outlined),
+                AppIcon(icon: Icons.clear, iconSize: Dimensions.iconSize24,),
+                AppIcon(icon: Icons.shopping_cart_outlined, iconSize: Dimensions.iconSize24,),
               ],
             ),
             bottom: PreferredSize(
